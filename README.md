@@ -6,7 +6,7 @@ Reviewed customer-runner distributions only. The main source repository and cont
 
 Supported: Python 3.11 on macOS/Linux, Git, Docker, one root requirements.txt with exact public PyPI pins, offline pytest tests. The only migration is the Versionlane-curated Deepgram Python SDK 6.1.1 → 7.0.0 three generated-type mappings. Deepgram is not a partner. There is no live provider pilot or customer-adoption claim.
 
-Installation was checked in a fresh Linux arm64 container. GitHub-hosted amd64 onboarding and live authentication/campaign acceptance are pending. Installations do not grant reporting consent or GitHub access.
+Fresh installation passed on macOS arm64, Linux arm64 and GitHub-hosted Ubuntu 24.04 amd64. The GitHub run also passed restricted Docker verification (seven independent SDK checks and one customer test in each baseline/candidate environment). This was builder-performed controlled development verification; live authentication, campaign-to-PR acceptance and independent customer onboarding remain pending. Installations do not grant reporting consent or GitHub access.
 
 ## Verify and install
 
@@ -29,3 +29,5 @@ The installer validates both downloaded assets before creating a virtual environ
 For a published campaign, accept its invitation, choose reporting/link permissions, save the one-time token outside Git, and commit its exact versionlane.toml. Set VERSIONLANE_BASE_URL to the real HTTPS campaign service. Preview with inspect, explicitly run verify, review changes.patch and separate fixture/customer test results, then opt into apply or publish-pr. Never provide reporting or GitHub write credentials to verification jobs. No staging service URL is advertised until deployed and verified.
 
 No autonomous merge, customer-code hosting, arbitrary provider plugins, lockfile support or general coding-agent behavior. A provider receipt contains aggregate customer-reported metadata only. A draft PR does not prove downstream CI ran.
+
+The immutable v0.1.0 release.json contains `published: false` because it records the build before upload. Publication is established by the GitHub release record; existing asset bytes and checksums are preserved. Future manifests distinguish build metadata from publication state.
